@@ -301,7 +301,7 @@ impl BottomPane {
     }
 
     /// Update the animated header shown to the left of the brackets in the
-    /// status indicator (defaults to "Working"). No-ops if the status
+    /// status indicator (defaults to "正在执行"). No-ops if the status
     /// indicator is not active.
     pub(crate) fn update_status_header(&mut self, header: String) {
         if let Some(status) = self.status.as_mut() {
@@ -658,7 +658,7 @@ mod tests {
             r0.push(buf[(x, 0)].symbol().chars().next().unwrap_or(' '));
         }
         assert!(
-            !r0.contains("Working"),
+            !r0.contains("正在执行"),
             "overlay should not render above modal"
         );
     }
@@ -706,7 +706,7 @@ mod tests {
             row1.push(buf[(x, 1)].symbol().chars().next().unwrap_or(' '));
         }
         assert!(
-            row1.contains("Working"),
+            row1.contains("正在执行"),
             "expected Working header after denial on row 1: {row1:?}"
         );
 
@@ -757,7 +757,7 @@ mod tests {
             row0.push(buf[(x, 1)].symbol().chars().next().unwrap_or(' '));
         }
         assert!(
-            row0.contains("Working"),
+            row0.contains("正在执行"),
             "expected Working header: {row0:?}"
         );
     }

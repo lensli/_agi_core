@@ -20,7 +20,7 @@ use crate::shimmer::shimmer_spans;
 use crate::tui::FrameRequester;
 
 pub(crate) struct StatusIndicatorWidget {
-    /// Animated header text (defaults to "Working").
+    /// Animated header text (defaults to "正在执行").
     header: String,
     show_interrupt_hint: bool,
 
@@ -51,7 +51,7 @@ pub fn fmt_elapsed_compact(elapsed_secs: u64) -> String {
 impl StatusIndicatorWidget {
     pub(crate) fn new(app_event_tx: AppEventSender, frame_requester: FrameRequester) -> Self {
         Self {
-            header: String::from("Working"),
+            header: String::from("正在执行"),
             // header: String::from("正在执行"),           
             show_interrupt_hint: true,
             elapsed_running: Duration::ZERO,

@@ -291,7 +291,7 @@ fn make_chatwidget_manual() -> (
         interrupts: InterruptManager::new(),
         reasoning_buffer: String::new(),
         full_reasoning_buffer: String::new(),
-        current_status_header: String::from("Working"),
+        current_status_header: String::from("正在执行"),
         retry_status_header: None,
         conversation_id: None,
         frame_requester: FrameRequester::test_dummy(),
