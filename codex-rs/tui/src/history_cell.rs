@@ -565,37 +565,68 @@ pub(crate) fn new_session_info(
         );
 
         // Help lines below the header (new copy and list)
+        // let help_lines_en: Vec<Line<'static>> = vec![
+        //     "  To get started, describe a task or try one of these commands:"
+        //         .dim()
+        //         .into(),
+        //     Line::from(""),
+        //     Line::from(vec![
+        //         "  ".into(),
+        //         "/init".into(),
+        //         " - create an AGENTS.md file with instructions for Codex".dim(),
+        //     ]),
+        //     Line::from(vec![
+        //         "  ".into(),
+        //         "/status".into(),
+        //         " - show current session configuration".dim(),
+        //     ]),
+        //     Line::from(vec![
+        //         "  ".into(),
+        //         "/approvals".into(),
+        //         " - choose what Codex can do without approval".dim(),
+        //     ]),
+        //     Line::from(vec![
+        //         "  ".into(),
+        //         "/model".into(),
+        //         " - choose what model and reasoning effort to use".dim(),
+        //     ]),
+        //     Line::from(vec![
+        //         "  ".into(),
+        //         "/review".into(),
+        //         " - review any changes and find issues".dim(),
+        //     ]),
+        // ];
         let help_lines: Vec<Line<'static>> = vec![
-            "  To get started, describe a task or try one of these commands:"
-                .dim()
-                .into(),
-            Line::from(""),
-            Line::from(vec![
-                "  ".into(),
-                "/init".into(),
-                " - create an AGENTS.md file with instructions for Codex".dim(),
-            ]),
-            Line::from(vec![
-                "  ".into(),
-                "/status".into(),
-                " - show current session configuration".dim(),
-            ]),
-            Line::from(vec![
-                "  ".into(),
-                "/approvals".into(),
-                " - choose what Codex can do without approval".dim(),
-            ]),
-            Line::from(vec![
-                "  ".into(),
-                "/model".into(),
-                " - choose what model and reasoning effort to use".dim(),
-            ]),
-            Line::from(vec![
-                "  ".into(),
-                "/review".into(),
-                " - review any changes and find issues".dim(),
-            ]),
-        ];
+                "  开始使用，请描述一个任务或尝试以下命令之一："
+                    .dim()
+                    .into(),
+                Line::from(""),
+                Line::from(vec![
+                    "  ".into(),
+                    "/init".into(),
+                    " - 创建包含 Codex 说明的 AGENTS.md 文件".dim(),
+                ]),
+                Line::from(vec![
+                    "  ".into(),
+                    "/status".into(),
+                    " - 显示当前会话配置".dim(),
+                ]),
+                Line::from(vec![
+                    "  ".into(),
+                    "/approvals".into(),
+                    " - 选择 Codex 可以在无需批准情况下执行的操作".dim(),
+                ]),
+                Line::from(vec![
+                    "  ".into(),
+                    "/model".into(),
+                    " - 选择要使用的模型和推理工作量级别".dim(),
+                ]),
+                Line::from(vec![
+                    "  ".into(),
+                    "/review".into(),
+                    " - 查看所有更改并发现问题".dim(),
+                ]),
+            ];
 
         CompositeHistoryCell {
             parts: vec![
@@ -692,18 +723,18 @@ impl HistoryCell for SessionHeaderHistoryCell {
         // Title line rendered inside the box: ">_ OpenAI Codex (vX)"
         let title_spans: Vec<Span<'static>> = vec![
             Span::from(">_ ").dim(),
-            Span::from("OpenAI Codex").bold(),
+            Span::from("_416_coder").bold(),
             Span::from(" ").dim(),
             Span::from(format!("(v{})", self.version)).dim(),
         ];
 
         const CHANGE_MODEL_HINT_COMMAND: &str = "/model";
-        const CHANGE_MODEL_HINT_EXPLANATION: &str = " to change";
-        const DIR_LABEL: &str = "directory:";
-        let label_width = DIR_LABEL.len();
+        const CHANGE_MODEL_HINT_EXPLANATION: &str = " 命令切换模型";//" to change";
+        const DIR_LABEL: &str = "当前目录:";
+        let label_width = DIR_LABEL.chars().count();//len();
         let model_label = format!(
             "{model_label:<label_width$}",
-            model_label = "model:",
+            model_label = "当前模型:",
             label_width = label_width
         );
         let reasoning_label = self.reasoning_label();

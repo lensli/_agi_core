@@ -52,6 +52,7 @@ impl StatusIndicatorWidget {
     pub(crate) fn new(app_event_tx: AppEventSender, frame_requester: FrameRequester) -> Self {
         Self {
             header: String::from("Working"),
+            // header: String::from("正在执行"),           
             show_interrupt_hint: true,
             elapsed_running: Duration::ZERO,
             last_resume_at: Instant::now(),
@@ -154,7 +155,8 @@ impl WidgetRef for StatusIndicatorWidget {
             spans.extend(vec![
                 format!("({pretty_elapsed} • ").dim(),
                 key_hint::plain(KeyCode::Esc).into(),
-                " to interrupt)".dim(),
+                " 按下取消任务)".dim(),
+                // " to interrupt)".dim(),
             ]);
         } else {
             spans.push(format!("({pretty_elapsed})").dim());

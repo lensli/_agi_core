@@ -85,7 +85,8 @@ fn footer_lines(props: FooterProps) -> Vec<Line<'static>> {
             line.push_span(" · ".dim());
             line.extend(vec![
                 key_hint::plain(KeyCode::Char('?')).into(),
-                " for shortcuts".dim(),
+                " 输入 ? 显示可用的快捷键".dim(),
+                // " for shortcuts".dim(),
             ]);
             vec![line]
         }
@@ -223,7 +224,8 @@ fn build_columns(entries: Vec<Line<'static>>) -> Vec<Line<'static>> {
 
 fn context_window_line(percent: Option<i64>) -> Line<'static> {
     let percent = percent.unwrap_or(100).clamp(0, 100);
-    Line::from(vec![Span::from(format!("{percent}% context left")).dim()])
+    // Line::from(vec![Span::from(format!("{percent}% context left")).dim()])
+    Line::from(vec![Span::from(format!("{percent}% 对话容量")).dim()])
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   meta = with lib; {
-    description = "OpenAI Codex command‑line interface rust implementation";
+    description = "_416_coder command‑line interface rust implementation";
     license = licenses.asl20;
     homepage = "https://github.com/openai/codex";
   };
