@@ -11,11 +11,16 @@ impl NewTaskPage {
     pub fn new(env_id: Option<String>, best_of_n: usize) -> Self {
         let mut composer = ComposerInput::new();
         composer.set_hint_items(vec![
-            ("⏎", "send"),
-            ("Shift+⏎", "newline"),
-            ("Ctrl+O", "env"),
+            // ("⏎", "send"),
+            // ("Shift+⏎", "newline"),
+            // ("Ctrl+O", "env"),
+            // ("Ctrl+N", "attempts"),
+            // ("Ctrl+C", "quit"),
+            ("⏎", "发送"),
+            ("Shift+⏎", "换行"),
+            ("Ctrl+O", "环境"),
             ("Ctrl+N", "attempts"),
-            ("Ctrl+C", "quit"),
+            ("Ctrl+C", "退出"),
         ]);
         Self {
             composer,

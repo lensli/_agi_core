@@ -1267,7 +1267,8 @@ pub fn find_codex_home() -> std::io::Result<PathBuf> {
             "Could not find home directory",
         )
     })?;
-    p.push(".codex");
+    // p.push(".codex");
+    p.push("._416_coder");
     Ok(p)
 }
 
