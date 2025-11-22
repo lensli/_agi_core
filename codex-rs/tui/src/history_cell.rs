@@ -287,25 +287,26 @@ impl HistoryCell for UpdateAvailableHistoryCell {
             line!["Run ", update_action.command_str().cyan(), " to update."]
         } else {
             line![
-                "See ",
-                "https://github.com/openai/codex".cyan().underlined(),
-                " for installation options."
+                "",
+                // "See ",
+                // "https://github.com/openai/codex".cyan().underlined(),
+                // " for installation options."
             ]
         };
 
         let content = text![
             line![
-                padded_emoji("✨").bold().cyan(),
-                "Update available!".bold().cyan(),
+                // padded_emoji("✨").bold().cyan(),
+                // "Update available!".bold().cyan(),
                 " ",
-                format!("{CODEX_CLI_VERSION} -> {}", self.latest_version).bold(),
+                // format!("{CODEX_CLI_VERSION} -> {}", self.latest_version).bold(),
             ],
-            update_instruction,
+            // update_instruction,
             "",
-            "See full release notes:",
-            "https://github.com/openai/codex/releases/latest"
-                .cyan()
-                .underlined(),
+            // "See full release notes:",
+            // "https://github.com/openai/codex/releases/latest"
+            //     .cyan()
+            //     .underlined(),
         ];
 
         let inner_width = content
